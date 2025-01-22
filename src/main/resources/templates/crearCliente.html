@@ -21,46 +21,46 @@
 		<main class="container mt-5">
 			<form th:object="${cliente}" action="/clientes/crear" method="post">
 				<div class="mb-3">
-					<label class="form-label">Nombre</label>
+					<label th:for="nombre" class="form-label">Nombre</label>
 					<input
 						class="form-control"
 						type="text"
-						th:value="*{nombre}"
+						th:field="*{nombre}"
 						required
 					/>
 				</div>
 				<div class="mb-3">
-					<label class="form-label">Apellido1</label>
+					<label th:for="apellido1" class="form-label">Apellido1</label>
 					<input
 						type="text"
 						class="form-control"
-						th:value="*{apellido1}"
+						th:field="*{apellido1}"
 						required
 					/>
 				</div>
 				<div class="mb-3">
-					<label class="form-label">Apellido2</label>
+					<label th:for="apellido2" class="form-label">Apellido2</label>
 					<input
 						type="text"
 						class="form-control"
-						th:value="*{apellido2}"
+						th:field="*{apellido2}"
 					/>
 				</div>
 				<div class="mb-3">
-					<label class="form-label">Ciudad</label>
+					<label th:for="ciudad" class="form-label">Ciudad</label>
 					<input
 						type="text"
 						class="form-control"
-						th:value="*{ciudad}"
+						th:field="*{ciudad}"
 						required
 					/>
 				</div>
 				<div class="mb-3">
-					<label class="form-label">Categoría</label>
+					<label th:for="categoria" class="form-label">Categoría</label>
 					<input
 						type="text"
 						class="form-control"
-						th:value="*{categoria}"
+						th:field="*{categoria}"
 						required
 					/>
 				</div>

@@ -19,14 +19,14 @@
 			</div>
 		</header>
 		<main class="container mt-5">
-			<form th:object="${cliente}" action="/clientes/crear" method="post">
+			<div th:object="${cliente}">
 				<div class="mb-3">
 					<label th:for="nombre" class="form-label">Nombre</label>
 					<input
 						class="form-control"
 						type="text"
 						th:field="*{nombre}"
-						required
+						readonly
 					/>
 				</div>
 				<div class="mb-3">
@@ -35,7 +35,7 @@
 						type="text"
 						class="form-control"
 						th:field="*{apellido1}"
-						required
+						readonly
 					/>
 				</div>
 				<div class="mb-3">
@@ -44,6 +44,7 @@
 						type="text"
 						class="form-control"
 						th:field="*{apellido2}"
+						readonly
 					/>
 				</div>
 				<div class="mb-3">
@@ -52,7 +53,7 @@
 						type="text"
 						class="form-control"
 						th:field="*{ciudad}"
-						required
+						readonly
 					/>
 				</div>
 				<div class="mb-3">
@@ -61,11 +62,10 @@
 						type="text"
 						class="form-control"
 						th:field="*{categoria}"
-						required
+						readonly
 					/>
 				</div>
-				<input class="btn btn-success" type="submit" value="Crear">
-			</form>
+			</div>
 		</main>
 	</body>
 </html>

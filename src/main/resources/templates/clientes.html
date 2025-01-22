@@ -41,11 +41,11 @@
 						<form th:action="@{/clientes/__${cliente.id}__}">
 							<input class="btn btn-primary" type="submit" value="Ver Detalle" />
 						</form>
-						<form th:action="@{/clientes/editar/}+${cliente.id} ">
+						<form th:action="@{/clientes/editar/__${cliente.id}__}">
 							<input class="btn btn-warning" type="submit" value="Editar" />
 						</form>
 						<form
-							th:action="@{/clientes/borrar/__${cliente.}_id_}"
+							th:action="@{/clientes/borrar/__${cliente.id}__}"
 							method="post"
 						>
 							<input class="btn btn-danger" type="submit" value="Eliminar" />

@@ -12,14 +12,18 @@
 	<body>
 		<header class="container bg-primary rounded-bottom">
 			<div class="row">
-				<h1 class="col-6 p-2">Clientes</h1>
-				<form class="col-6 align-self-center" action="/clientes">
+				<h1 class="col-6 p-2">Comerciales</h1>
+				<form class="col-6 align-self-center" action="/comerciales">
 					<input class="btn btn-secondary" type="submit" value="Volver" />
 				</form>
 			</div>
 		</header>
 		<main class="container mt-5">
-			<form th:object="${cliente}" action="/clientes/crear" method="post">
+			<form th:object="${comercial}" th:action="@{/comerciales/editar}" method="post">
+				<input
+					type="hidden"
+					th:field="*{id}"
+				/>
 				<div class="mb-3">
 					<label th:for="nombre" class="form-label">Nombre</label>
 					<input
@@ -47,24 +51,15 @@
 					/>
 				</div>
 				<div class="mb-3">
-					<label th:for="ciudad" class="form-label">Ciudad</label>
+					<label th:for="ciudad" class="form-label">Comisión</label>
 					<input
 						type="text"
 						class="form-control"
-						th:field="*{ciudad}"
+						th:field="*{comision}"
 						required
 					/>
 				</div>
-				<div class="mb-3">
-					<label th:for="categoria" class="form-label">Categoría</label>
-					<input
-						type="text"
-						class="form-control"
-						th:field="*{categoria}"
-						required
-					/>
-				</div>
-				<input class="btn btn-success" type="submit" value="Crear">
+				<input class="btn btn-success" type="submit" value="Actualizar">
 			</form>
 		</main>
 	</body>

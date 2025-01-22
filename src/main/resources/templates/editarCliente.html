@@ -19,7 +19,11 @@
 			</div>
 		</header>
 		<main class="container mt-5">
-			<form th:object="${cliente}" action="/clientes/crear" method="post">
+			<form th:object="${cliente}" th:action="@{/clientes/editar}" method="post">
+				<input
+					type="hidden"
+					th:field="*{id}"
+				/>
 				<div class="mb-3">
 					<label th:for="nombre" class="form-label">Nombre</label>
 					<input
@@ -64,7 +68,7 @@
 						required
 					/>
 				</div>
-				<input class="btn btn-success" type="submit" value="Crear">
+				<input class="btn btn-success" type="submit" value="Actualizar">
 			</form>
 		</main>
 	</body>
