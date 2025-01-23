@@ -1,7 +1,9 @@
 package org.iesvdm.controlador;
 
 import org.iesvdm.modelo.Comercial;
+import org.iesvdm.modelo.Pedido;
 import org.iesvdm.service.ComercialService;
+import org.iesvdm.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +17,9 @@ public class ComercialController {
 
     @Autowired
     private ComercialService comercialService;
+
+    @Autowired
+    private PedidoService pedidoService;
 
     @GetMapping("/comerciales")
     public String getComercial(Model model) {
@@ -60,6 +65,8 @@ public class ComercialController {
             return "redirect:/comerciales";
         }
         model.addAttribute("comercial", comercialService.find(id).get());
+
+        model.addAttribute("listaPedidos", pedidoService.findByComercialID(id));
         return "detallesComercial";
     }
 }
