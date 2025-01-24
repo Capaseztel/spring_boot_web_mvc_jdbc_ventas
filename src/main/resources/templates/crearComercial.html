@@ -1,7 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8" />
-		<title>Comerciales</title>
+		<title th:text="#{comerciales}">Comerciales</title>
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 			rel="stylesheet"
@@ -12,16 +12,16 @@
 	<body>
 		<header class="container bg-primary rounded-bottom">
 			<div class="row">
-				<h1 class="col-6 p-2">Comerciales</h1>
+				<h1 class="col-6 p-2" th:text="#{comerciales}">Comerciales</h1>
 				<form class="col-6 align-self-center" action="/comerciales">
-					<input class="btn btn-secondary" type="submit" value="Volver" />
+					<input class="btn btn-secondary" type="submit" th:value="#{volver}" />
 				</form>
 			</div>
 		</header>
 		<main class="container mt-5">
 			<form th:object="${comercial}" action="/comerciales/crear" method="post">
 				<div class="mb-3">
-					<label th:for="nombre" class="form-label">Nombre</label>
+					<label th:for="nombre" class="form-label" th:value="#{nombre}">Nombre</label>
 					<input
 						class="form-control"
 						type="text"
@@ -30,7 +30,7 @@
 					/>
 				</div>
 				<div class="mb-3">
-					<label th:for="apellido1" class="form-label">Apellido1</label>
+					<label th:for="apellido1" class="form-label" th:value="#{apellido1}">Apellido1</label>
 					<input
 						type="text"
 						class="form-control"
@@ -39,7 +39,7 @@
 					/>
 				</div>
 				<div class="mb-3">
-					<label th:for="apellido2" class="form-label">Apellido2</label>
+					<label th:for="apellido2" class="form-label" th:value="#{apellido2}">Apellido2</label>
 					<input
 						type="text"
 						class="form-control"
@@ -47,7 +47,7 @@
 					/>
 				</div>
 				<div class="mb-3">
-					<label th:for="ciudad" class="form-label">Comisión</label>
+					<label th:for="ciudad" class="form-label" th:value="#{comision}">Comisión</label>
 					<input
 						type="text"
 						class="form-control"
@@ -55,7 +55,7 @@
 						required
 					/>
 				</div>
-				<input class="btn btn-success" type="submit" value="Crear">
+				<input class="btn btn-success" type="submit" th:value="#{crear}">
 			</form>
 		</main>
 	</body>
