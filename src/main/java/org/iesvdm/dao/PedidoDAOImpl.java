@@ -36,7 +36,7 @@ public class PedidoDAOImpl implements PedidoDAO {
     public List<Double> getTotalFromClientID(Long id) {
         return jdbcTemplate.query(
                 "SELECT total FROM pedido WHERE id_cliente = ?",
-                (rs, rowNum) -> rs.getDouble("id_cliente"), id
+                (rs, rowNum) -> rs.getDouble("total"), id
         );
     }
 }
