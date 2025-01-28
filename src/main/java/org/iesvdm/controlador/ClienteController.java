@@ -3,6 +3,7 @@ package org.iesvdm.controlador;
 import java.util.List;
 import java.util.Optional;
 
+import lombok.AllArgsConstructor;
 import org.iesvdm.modelo.Cliente;
 import org.iesvdm.service.ClienteService;
 import org.springframework.stereotype.Controller;
@@ -10,13 +11,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
+@AllArgsConstructor
 public class ClienteController {
 	
 	private ClienteService clienteService;
-
-	public ClienteController(ClienteService clienteService) {
-		this.clienteService = clienteService;
-	}
 
 	@GetMapping("/clientes")
 	public String listar(Model model) {

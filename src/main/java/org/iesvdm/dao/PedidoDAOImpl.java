@@ -12,6 +12,7 @@ public class PedidoDAOImpl implements PedidoDAO {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
+    ClienteDAOImpl clienteDAOImpl;
 
     @Override
     public List<Pedido> findByComercialID(int id) {
@@ -20,9 +21,22 @@ public class PedidoDAOImpl implements PedidoDAO {
                 (rs, rowNum) -> new Pedido(rs.getInt("id"),
                         rs.getDouble("total"),
                         rs.getDate("fecha"),
-                        rs.getInt("id_comercial"),
-                        rs.getInt("id_cliente")), id
+                        rs.getInt("id_cliente"),
+                        rs.getInt("id_comercial")), id
         );
     }
 
+    public List<Integer> findClienteIDByComercialID(int id) {
+        return jdbcTemplate.query(
+                "SELECT id_cliente FROM pedido WHERE id_comercial = ?",
+                (rs, rowNum) -> rs.getInt("id_cliente"), id
+        );
+    }
+
+    public List<Double> getTotalFromClientID(Long id) {
+        return jdbcTemplate.query(
+                "SELECT total FROM pedido WHERE id_cliente = ?",
+                (rs, rowNum) -> rs.getDouble("id_cliente"), id
+        );
+    }
 }

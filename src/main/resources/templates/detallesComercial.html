@@ -65,11 +65,33 @@
 					<th>Fecha</th>
 					<th>id_cliente</th>
 				</tr>
-				<tr th:each="pedido : ${listaPedidos}">
+				<tr th:class="${pedido.getTotal()>=comercial.getHighest()?'table-success':(pedido.getTotal()<=comercial.getLowest()?'table-warning':'')}" th:each="pedido : ${comercial.getPedidos()}">
 					<td th:text="${pedido.getId()}">0</td>
 					<td th:text="|${pedido.getTotal()} €|">0.0 €</td>
 					<td th:text="${pedido.getFecha()}">20/4/2011</td>
 					<td th:text="${pedido.getIdCliente()}">0</td>
+				</tr>
+			</table>
+			<div class="container bg-secondary p-2 row">
+				<p class="col text-white text-center my-auto">Total: <span th:text="|${comercial.getTotal()} €|">0</span></p>
+				<p class="col text-white text-center my-auto">Media <span th:text="|${comercial.getMedia()} €|">0</span></p>
+			</div>
+			<table class="table table-striped">
+				<tr>
+					<th>ID</th>
+					<th>Nombre</th>
+					<th>Apellido 1</th>
+					<th>Apellido2</th>
+					<th>Ciudad</th>
+					<th>Categoria</th>
+				</tr>
+				<tr th:each="cliente : ${comercial.getClientes()}">
+					<td th:text="${cliente.getId()}">0</td>
+					<td th:text="${cliente.getNombre()}">John</td>
+					<td th:text="${cliente.getApellido1()}">Doe</td>
+					<td th:text="${cliente.getApellido2()}">Person</td>
+					<td th:text="${cliente.getCiudad()}">Washington</td>
+					<td th:text="${cliente.getCategoria()}">100</td>
 				</tr>
 			</table>
 		</main>

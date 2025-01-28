@@ -61,12 +61,11 @@ public class ComercialController {
 
     @GetMapping("/comerciales/{id}")
     public String detalleComercial(@PathVariable("id") int id, Model model) {
-        if (comercialService.find(id).isEmpty()) {
+        if (comercialService.findDTO(id).isEmpty()) {
             return "redirect:/comerciales";
         }
-        model.addAttribute("comercial", comercialService.find(id).get());
+        model.addAttribute("comercial", comercialService.findDTO(id).get());
 
-        model.addAttribute("listaPedidos", pedidoService.findByComercialID(id));
         return "detallesComercial";
     }
 }

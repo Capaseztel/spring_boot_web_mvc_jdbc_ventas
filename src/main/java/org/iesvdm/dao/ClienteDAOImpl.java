@@ -110,6 +110,7 @@ public class ClienteDAOImpl implements ClienteDAO {
 			return Optional.empty();
 		}
 	}
+
 	/**
 	 * Actualiza Cliente con campos del bean Cliente según ID del mismo.
 	 */
